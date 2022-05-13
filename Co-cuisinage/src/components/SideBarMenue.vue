@@ -1,7 +1,7 @@
 <template>
-    <div class="menu">
-      <img :src="scroller" class="scroller" />
+    
       <ul class="list">
+          <div class="force-overflow"></div>
         <li> Entrée</li>
         <li> Déssert</li>
         <li> Plat Principale</li>
@@ -13,7 +13,7 @@
         <li> Boulangerie</li>
         <li> Snacks</li>
       </ul>
-    </div>
+    
 </template>
 <script>
 import scroller from "../assets/Rectangle 83.png"
@@ -30,33 +30,43 @@ export default {
    
 }
 </script>
-<style scoped>
-.menu{
- position: absolute;
-width: 208px;
-height: 439px;
-left: 1155px;
-top: 581px;
-background-color: rgb(246, 246, 246);
-box-shadow:rgb(255, 255, 255);
-   
+<style scoped> 
+
+.list::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+	border-radius: 10px;
 }
-.scroller{
-  margin-left:196px;
+
+.list::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
 }
+
+.list::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background :rgb(177, 184, 198);
+} 
 .list{
-   -webkit-font-smoothing: antialiased;
+  position: absolute;
+  width: 258px;
+  height: 339px;
+ 
+  background-color: rgb(255, 251, 251);
+  box-shadow:rgb(255, 255, 255);
+  -webkit-font-smoothing: antialiased;
   font-family: "Helvetica Neue", sans-serif;
   font-size: 102.5%;
-  margin-top: -141px;
-  margin-left: -55px;
-  
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 .list li {
   position: relative;
   list-style-type: none;
   padding-left: 2.5rem;
-  /* margin-bottom: 0.5rem; */
   cursor: pointer;
   margin-bottom: 20px;
 }

@@ -1,7 +1,9 @@
 <template>
-<div>
-  <div class="product">
-      <img :src="closeIcon" class="closeIcon"  />
+
+  <transition to=".target">
+    <div class="modal" v-if="showModal=true">
+        <div class="product">
+      <img :src="closeIcon" class="closeIcon" @click="this.show()"  />
       <img :src="stats" class="stats">
        <p class="name">BONITE</p>
       <div class="report"> 
@@ -29,8 +31,14 @@
     </div>
   </div>
   <img :src="energy" class="energy">
-  <img :src="insights" class="insights" >
-</div>   
+  <img :src="insights" class="insights" > 
+    </div>
+  </transition>  
+  
+    
+ 
+
+ 
 </template>
 
 
@@ -47,7 +55,10 @@ import insights from "../assets/Group 158.png"
 import energy  from "../assets/simple-line-icons_energy.png"
 
 
+
+ 
 export default {
+
    data(){
        return {
         ProductImage,
@@ -59,14 +70,24 @@ export default {
         Star,
         WhiteStar,
         insights,
-        energy
+        energy,
+        ShowModal : true
        }
    },
-  
-  
+   props:{ 
+     show: { type : Function }
+   }
+    
+   
 }
 </script>
+
 <style scoped>
+
+
+.btn{
+  margin-left : 50% ;color : black
+}
 .product{
 position: absolute;
 width: 1075px;

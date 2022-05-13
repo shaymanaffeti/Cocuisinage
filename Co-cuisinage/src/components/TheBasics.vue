@@ -1,7 +1,7 @@
 <template>
     <div class="test1"> 
       <div class="test" v-for="item in items" :key="item.id">
-       <div class="card" @click="this.Switch()" >
+       <div class="card" @click="()=>{this.Switch() }" >
          <img :src="item.picture"  class="image"/>
           <span class="name">
             {{ item.name}}
@@ -19,9 +19,9 @@
       </div>           
      </div>
     </div>
-     <div class="parent">
+     <!-- <div class="parent">
       <div class="child">Voir Plus</div>
-  </div>     
+  </div>      -->
 </template>
 <script>
 import items from "../../public/fishes.json"
@@ -54,33 +54,33 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content:center;
-top:721px;
-left:209px;
+height:60%;
+width:85%;
+top:95%;
+left:5%;
 }
 
 .test{
 margin:20px 0px ; 
-width: 252px;
-height: 353px;
-margin-left:45px;
-
+width: 100%;
+height:70%;
+left:1%;
 }
 
 
 .card{
-width: 252px;
-height: 353px;
-left: 281px;
-top: 755px;
+padding-left:2%;
+width: 65%;
+height:65%;
 background-color: rgb(255, 251, 251);
 box-shadow: 5px 20px 30px -14px rgba(0, 0, 0, 0.1);
-
 }
 .name{
-width: 182px;
-height: 71.94px;
-left: 29px;
-top: 222px;
+position: relative;
+max-width:5%;
+height: 7%;
+left: 5%;
+top: 2%;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 600;
@@ -89,57 +89,56 @@ line-height: 106.5%;
 color: #3A3244;
 }
 .image{
-width: 251px;
-height: 182px;
-right: 2px;
-top: 1px;
+margin-left:10%;
+max-width: 50%;
+max-height: 40%;
+right: 2%;
+top: 1%;
 background: #FEFEFE;
 border-radius: 27px;
 }
 
 .group5{
-width: 69px;
-height: 12.7px;
-left: 28px;
-top: 244.13px;
+position: relative;
+max-width: 36%;
+max-height: 55%;
+left:5%;
+top: 2%;
 }
 .group5 p {
 position: relative;
 width: 32px;
 height: 14.81px;
-left: 86px;
-top: -27.83px;
+left: 92%;
+bottom: 6%;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 300;
 font-size: 13px;
-line-height: 106.5%;
-/* or 14px */
+line-height: 1.5em;
 color: #000000;
 }
 .price{
-  position: relative;
-width: 182px;
-height: 33px;
-left: 9px;
-top: 71px;
+
+left: 9%;
+bottom: 37%;
 font-family: 'Poppins';
 font-style: normal;
-font-weight: 400;
-font-size: 32px;
-line-height: 106.5%;
+/* font-weight: 400; */
+font-size: 110%;
+line-height: 1.5em;
 color: #3A3244;
 }
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
+.wrapper{
+ 
+ float: right;
+}
 
 .wrapper .icon {
-  position: relative;
   background: #ffffff;
   border-radius: 50%;
   padding: 15px;
-  left: 155px;
-  top:15px;
   width: 10px;
   height: 15px;
   font-size: 18px;

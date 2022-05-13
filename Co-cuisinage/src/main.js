@@ -1,11 +1,14 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import { createWebHistory, createRouter } from "vue-router";
-
+import "./index.css"
 import Shop from "./components/ShopTab.vue";
 import Menu from "./components/SideBarMenue.vue";
 import MenuItem from "./components/TheBasics.vue"
 import SelectedProduct from "./components/SelectedItem.vue"
+//Vue Modal
+
+
 
 
 const routes = [
