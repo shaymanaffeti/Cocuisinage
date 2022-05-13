@@ -1,6 +1,8 @@
 <template>
-  <div class="market"> 
+      <div class="market"> 
+
      <nav-bar/> 
+     
         <img :src="Fishes" class="fishes"/>
       <div class="text"> 
           <span>De 
@@ -23,22 +25,17 @@
       </div>
 
         <p class="promo">Promos du moment</p> 
-      
-          <div class="sidebar"><side-bar-menue  :show="show"/></div> 
-          <div v-if="edit===true"><the-basics  :Switch="Switch"/> </div>
-        
-       
-         
-   
-     <div v-if="showMore"   class="target">
-      <div class="blur" ><selected-product :show="Switch" /> </div>
-     </div>
+        <div class="sidebar"><side-bar-menue /></div> 
+        <div><the-basics  :Switch="Switch"/> </div>    
  </div>
+  <div v-if="showMore"   class="target">
+       <selected-product :show="Switch" /> 
+       </div>
 </template>
 
 
 <script>
-
+// 
 
 import NavBar from "./NavBar.vue"
 import Fishes from "../assets/fishBackground.png"
@@ -58,35 +55,27 @@ components:{
 data(){
   return{  
    Fishes,
-   edit:false,
-   showMore: false,
+   showMore: true,
    schedule,
    
   }
 } ,
  methods:{
-      show:function(){
-        this.edit = !this.edit
-        
-      },
+      
       Switch: function(){
        this.showMore = !this.showMore
      
      }
      
+    },
+    mounted(){
+      console.log(this.showMore)
     }
 }
 </script>
 <style scoped  >
 
-.blur{
-position: absolute;
-width: 100%;
-height: 100%;
-bottom:10rem;
-background: rgba(196, 196, 196, 0.5);
-backdrop-filter: blur(15px);
-}
+
 
 .market{
 position: absolute;
@@ -103,10 +92,10 @@ box-shadow: inset 112px -112px 112px rgba(0, 0, 0, 0.171), inset -112px 112px 11
 }
 .text{
 position: absolute;
-width: 30%;
-height:35%;
-left:50%;
-top: 15%;
+width: 25%;
+height:40%;
+left:47%;
+top: 20%;
 display:table-row;
 font-family: 'Poppins';
 font-style: normal;
@@ -118,11 +107,10 @@ color: #FEFAE5;
 }
 .box{
  position: relative;
- width: 20%;
+ width: 23%;
  height: 50%;
  left: 22%;
- top:18%;
-
+ top:5%;
  color:white;
 border-radius: 1.5%;
 background: rgba(249, 245, 245, 0.25);
@@ -156,13 +144,18 @@ backdrop-filter:  blur( 9.5px );
 }
  .schedule-content{
    position: relative;
-    top:27%;
-     left:15%;
-     padding-top:0.5rem;
+   top:27%;
+   left:15%;
+   padding-top:0.5rem;
+   font-family: 'Poppins';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   line-height: 1.5em;
  }
 .timing{
-    position:absolute;
-    right:25%;
+  position:absolute;
+   right:25%;
  }
 
 .promo{
@@ -181,10 +174,5 @@ color: #3A3244;
 
 }
 
-.sidebar{
-  position:relative;
-  top:45%;
-  left:83%;
- 
-}
+
 </style>

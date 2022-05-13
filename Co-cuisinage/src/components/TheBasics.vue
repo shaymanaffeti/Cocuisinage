@@ -57,12 +57,12 @@ justify-content:center;
 height:60%;
 width:85%;
 top:95%;
-left:5%;
+left:4.5%;
 }
 
 .test{
 margin:20px 0px ; 
-width: 100%;
+width: 85%;
 height:70%;
 left:1%;
 }
@@ -70,22 +70,23 @@ left:1%;
 
 .card{
 padding-left:2%;
-width: 65%;
+left:5%;
+width: 69%;
 height:65%;
 background-color: rgb(255, 251, 251);
 box-shadow: 5px 20px 30px -14px rgba(0, 0, 0, 0.1);
 }
 .name{
 position: relative;
-max-width:5%;
+width:4%;
 height: 7%;
 left: 5%;
 top: 2%;
 font-family: 'Poppins';
 font-style: normal;
-font-weight: 600;
-font-size: 16px;
-line-height: 106.5%;
+font-weight: 400;
+font-size: 11px;
+line-height: 1.em;
 color: #3A3244;
 }
 .image{
@@ -107,14 +108,12 @@ top: 2%;
 }
 .group5 p {
 position: relative;
-width: 32px;
-height: 14.81px;
 left: 92%;
-bottom: 6%;
+bottom:0.8rem;
 font-family: 'Poppins';
 font-style: normal;
-font-weight: 300;
-font-size: 13px;
+font-weight: 400;
+font-size: 9px;
 line-height: 1.5em;
 color: #000000;
 }

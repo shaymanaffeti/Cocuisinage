@@ -7,13 +7,13 @@
         <li> Plat Principale</li>
         <li> Amuse Bouches</li>
         <li> Boissons</li>
-        <li v-on:click="this.show()" class ="clicked"> <p>Les bases</p>  </li>
+        <li > <p>Les bases</p>  </li>
         <li> Les Fromages </li>
         <li> Sauces</li>
         <li> Boulangerie</li>
         <li> Snacks</li>
       </ul>
-    
+ <!-- v-on:click="this.show()" class ="clicked"    -->
 </template>
 <script>
 import scroller from "../assets/Rectangle 83.png"
@@ -24,10 +24,7 @@ export default {
         scroller,
       }
     },
-    props: {
-    show: { type: Function },
-  },
-   
+    
 }
 </script>
 <style scoped> 
@@ -52,9 +49,10 @@ export default {
 } 
 .list{
   position: absolute;
-  width: 258px;
-  height: 339px;
- 
+  width: 17%;
+  height: 50%;
+  top:85%;
+  left:81%;
   background-color: rgb(255, 251, 251);
   box-shadow:rgb(255, 255, 255);
   -webkit-font-smoothing: antialiased;

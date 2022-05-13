@@ -38,7 +38,7 @@ export default {
 <style scoped>
 
 .nav{
-position: absolute;
+position: relative;
 width:100%;
 height: 12.88%;
 background-color: #4F95FF;
