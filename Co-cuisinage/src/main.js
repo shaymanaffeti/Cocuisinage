@@ -6,7 +6,7 @@ import Shop from "./components/ShopTab.vue";
 import Menu from "./components/SideBarMenue.vue";
 import MenuItem from "./components/TheBasics.vue"
 import SelectedProduct from "./components/SelectedItem.vue"
-//Vue Modal
+import Cart from "./components/ShoppingCart.vue"
 
 
 
@@ -35,6 +35,11 @@ const routes = [
     {
         path: "/Item",
         component:SelectedProduct ,
+       
+    },
+    {
+        path: "/cart",
+        component:Cart ,
        
     },
   

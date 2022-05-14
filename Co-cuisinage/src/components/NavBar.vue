@@ -1,5 +1,5 @@
 <template>
-    <div class="nav">
+  <div class="nav">
      <img :src="fishIcon" class="icon" />
         <span class="title">Poissonier</span>
           <ul  class="tabs">
@@ -12,11 +12,8 @@
           
           <img :src="searchIcon" class="searchIcon">
           <img :src="userIcon" class="userIcon">
-          <img :src="basket" class="basket">
-        
-       
-    </div> 
-    
+          <img :src="basket" class="basket" @click="this.showCart()">
+  </div>   
 </template>
 <script>
 import fishIcon from "../../public/fish_icon.png"
@@ -30,9 +27,13 @@ export default {
     fishIcon ,
     userIcon,
     searchIcon,
-    basket
+    basket,
   }
-} 
+    },
+  props:{
+    showCart: { type : Function }
+  }
+
 }
 </script>
 <style scoped>
@@ -98,7 +99,7 @@ max-width: 1.8%;
 height: 23%;
 left:90.78%;
 bottom: 1.8rem;
-/* padding-left:0.1rem; */
+
 } 
 .searchIcon{
 position: absolute;
@@ -121,5 +122,7 @@ color: #4F95FF;
 background:  #f6f4e6;
 border-radius: 2px;
 }
-
+img{
+  cursor: pointer;
+}
 </style>

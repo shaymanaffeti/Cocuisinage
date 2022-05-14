@@ -1,6 +1,6 @@
 <template>
     <div class="test1"> 
-      <div class="test" v-for="item in items" :key="item.id">
+      <div class="test" v-for="item in items" :key="item">
        <div class="card" @click="()=>{this.Switch() }" >
          <img :src="item.picture"  class="image"/>
           <span class="name">
@@ -33,7 +33,7 @@ export default {
        return{
        items,
        stars,
-      
+       product:{}
        }
    },
 

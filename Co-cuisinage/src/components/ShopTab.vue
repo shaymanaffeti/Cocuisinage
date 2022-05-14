@@ -1,7 +1,7 @@
 <template>
       <div class="market"> 
 
-     <nav-bar/> 
+     <nav-bar :showCart="showCart"/> 
      
         <img :src="Fishes" class="fishes"/>
       <div class="text"> 
@@ -29,13 +29,17 @@
         <div><the-basics  :Switch="Switch"/> </div>    
  </div>
   <div v-if="showMore"   class="target">
-       <selected-product :show="Switch" /> 
-       </div>
+    <selected-product :show="Switch" /> 
+   </div>
+   
+   <div v-if="open" class="pannel">    
+      <shopping-cart :cart="showCart" />
+   </div>
 </template>
 
 
 <script>
-// 
+
 
 import NavBar from "./NavBar.vue"
 import Fishes from "../assets/fishBackground.png"
@@ -43,6 +47,7 @@ import schedule from "../../public/schedule.json"
 import SideBarMenue from "./SideBarMenue.vue";
 import SelectedProduct from "./SelectedItem.vue"
 import TheBasics from "./TheBasics.vue"
+import ShoppingCart from "./ShoppingCart.vue"
 
 
 export default {
@@ -51,31 +56,28 @@ components:{
  TheBasics,
  NavBar,
  SelectedProduct,
+ ShoppingCart
 },
 data(){
   return{  
-   Fishes,
-   showMore: true,
-   schedule,
-   
+    Fishes,
+    showMore: false,
+    schedule,
+    open:false, 
   }
 } ,
- methods:{
-      
+ methods:{  
       Switch: function(){
-       this.showMore = !this.showMore
-     
-     }
-     
-    },
-    mounted(){
-      console.log(this.showMore)
+       this.showMore = !this.showMore   
+     },
+     showCart(){
+      this.open = !this.open
     }
+   },
+   
 }
 </script>
 <style scoped  >
-
-
 
 .market{
 position: absolute;
@@ -93,14 +95,14 @@ box-shadow: inset 112px -112px 112px rgba(0, 0, 0, 0.171), inset -112px 112px 11
 .text{
 position: absolute;
 width: 25%;
-height:40%;
+max-height:25%;
 left:47%;
 top: 20%;
 display:table-row;
 font-family: 'Poppins';
 font-style: normal;
-font-weight: 800;
-font-size: 3em;
+font-weight: 600;
+font-size: 3rem;
 line-height: 1.5em;
 letter-spacing: -0.055em;
 color: #FEFAE5;
@@ -108,7 +110,9 @@ color: #FEFAE5;
 .box{
  position: relative;
  width: 23%;
+ min-width:20%;
  height: 50%;
+ max-height:70%; 
  left: 22%;
  top:5%;
  color:white;
@@ -144,30 +148,33 @@ backdrop-filter:  blur( 9.5px );
 }
  .schedule-content{
    position: relative;
+   min-width:70%;
    top:27%;
    left:15%;
    padding-top:0.5rem;
    font-family: 'Poppins';
    font-style: normal;
    font-weight: 400;
-   font-size: 16px;
-   line-height: 1.5em;
+  font-size: 13px;
+  line-height: 1em;
  }
 .timing{
   position:absolute;
-   right:25%;
+  left:45%;
  }
 
 .promo{
   position:absolute;
   top:82%;
   left:10%;
-width: 65%;
+ max-width: 16vw;
 height: 14%;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 700;
-font-size: 2em;
+ /* @media screen and (min-width: 820px) and (max-width: 940px) { */
+    font-size: 2em;
+ 
 line-height: 1.5em;
 letter-spacing: -0.025em;
 color: #3A3244;

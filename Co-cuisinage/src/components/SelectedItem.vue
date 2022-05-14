@@ -1,13 +1,12 @@
 <template>
-
   <transition to=".target">
     <div class="modal" v-if="showModal=true">
         <div class="product">
          <img :src="closeIcon" class="closeIcon" @click="this.show()"  />
-         <img :src="stats" class="stats">
+         <img :src="stats" class="stats" @click="showInsights= !showInsights" />
          <p class="name">BONITE</p>
       <div class="report"> 
-          <img :src="report" >
+          <img :src="report" @click="showReport= !showReport" />                   
           <p>Les poissons et fruits de mer</p>
           <div class="stars"> 
             <img :src="Star" class="star">
@@ -18,6 +17,18 @@
          </div>
         
        </div>
+       <div v-if="showReport" class="reports" @click="showReport= !showReport">
+          <img :src="conseils" class="conseils">
+         <img :src="ellipse" class="ellipse1"><span class="number1">1</span> 
+         <img :src="ellipse" class="ellipse2"><span class="number2">2</span>
+          <div class="suggestions">
+            <img :src="suggestion1">
+            <img :src="suggestion2">
+          </div>  
+        </div>
+        <div v-if="showInsights">
+          <img :src="insights" class="insights" @click="showInsights= !showInsights">
+        </div>
         <img :src="ProductImage" class="ProductImage"/>
     <div class="totalPrice">9$  <span>12$/KG</span> </div>
      
@@ -34,11 +45,6 @@
   
     </div>
   </transition>  
-  
-    
- 
-
- 
 </template>
 
 
@@ -51,11 +57,11 @@ import minus from "../assets/Vector 14.png"
 import plusV from "../assets/Vector 12.png"
 import Star from "../assets/Star.png"
 import WhiteStar from "../assets/Star 5.png"
-
-
-
-
- 
+import insights from "../assets/Group 158.png"
+import suggestion1 from "../assets/CruCitron.png"
+import suggestion2 from "../assets/Grillée.png"
+import conseils from "../assets/Conseil.png";
+import ellipse from "../assets/Ellipse 35.png"
 export default {
 
    data(){
@@ -68,7 +74,14 @@ export default {
         plusV,
         Star,
         WhiteStar,
-        ShowModal : true
+        ShowModal : false,
+        insights,
+        suggestion1,
+        suggestion2,
+        conseils,
+        ellipse,
+        showInsights:false ,
+        showReport:false ,
        }
    },
    props:{ 
@@ -98,12 +111,12 @@ border-radius: 180px 4px 4px 180px;
 }
 .productImage{
 position: absolute;
-max-width: 20.6vw;
+width: 8.6vw;
 height:15vh;
 left: 4%;
 top: 5%;
 background:"ProductImage";
-transform: matrix(-0.91, 0.41, 0.41, 0.91, 0, 0);
+/* transform: matrix(-0.91, 0.41, 0.41, 0.91, 0, 0); */
 }
 .closeIcon{
 position: absolute;
@@ -120,24 +133,27 @@ top: 18.32%;
 bottom: 86.91%;
 width: 2.7vw;
 height: 5.66vh;
+cursor: pointer;
 
 }
 .report{
 position: absolute;
 left: 41.5%;
 right: 51.87%;
-top: 35.01%;
+top: 39.01%;
 bottom: 84.03%;
 
 }
 .report img {
 width: 2.7vw;
 height: 5.66vh;
+cursor: pointer;
 }
 .report p {
 position: absolute;
-width: 34vw;
+width: 44vw;
 height: 2vh;
+max-height:5%;
 left: 50%;
 padding-left:0.6rem;
 top:-1.33rem ;
@@ -198,10 +214,11 @@ position: absolute;
 width: 10vw;
 height: 5vh;
 top: 115%;
+justify-content: center;
 background: #4F95FF;
 color: #FFFFFF;
-padding-left:2.5rem;
-padding-top:0.3rem;
+padding-left:25.5%;
+padding-top:2.3%;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 600;
@@ -278,13 +295,56 @@ line-height: 1.5em;
 color: #3A3244;
 
 }
-
-.energy{
+.conseils{
+  position: absolute;
+width: 70vw;
+height: 30.9vh;
+top:105%;
+left:7%;
+}
+.suggestions{
+   position: absolute;
+   display:flex;
+   flex-direction: row; 
+   width:56vw;
+   top:162%;
+   right:20%;
+}
+.insights{
+  position: absolute;
+  top:105%;
+   right:1%;
+}
+.ellipse1{
+  position: absolute;
+top:110%;
+left:49%;
+}
+.ellipse2 {
 position: absolute;
-width: 28px;
-height: 28px;
-left: 507px;
-top: 991px;
-
+top:110%;
+left:97%;
+}
+.number1{
+position: absolute;
+top:110%;
+left:49.8%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 1.5em;
+color: #06C853;
+}
+.number2{
+position: absolute;
+top:110%;
+left:97.8%;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 1.5em;
+color: #06C853;
 }
 </style>
