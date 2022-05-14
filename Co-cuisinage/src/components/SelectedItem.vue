@@ -5,8 +5,8 @@
          <img :src="closeIcon" class="closeIcon" @click="this.show()"  />
          <img :src="stats" class="stats" @click="showInsights= !showInsights" />
          <p class="name">BONITE</p>
-      <div class="report"> 
-          <img :src="report" @click="showReport= !showReport" />                   
+      <div class="report" @click="showReport= !showReport"> 
+          <img :src="report" class="reportIcon" />                   
           <p>Les poissons et fruits de mer</p>
           <div class="stars"> 
             <img :src="Star" class="star">
@@ -22,8 +22,8 @@
          <img :src="ellipse" class="ellipse1"><span class="number1">1</span> 
          <img :src="ellipse" class="ellipse2"><span class="number2">2</span>
           <div class="suggestions">
-            <img :src="suggestion1">
-            <img :src="suggestion2">
+            <img :src="suggestion1">          
+            <img :src="suggestion2" class="suggestion2">
           </div>  
         </div>
         <div v-if="showInsights">
@@ -95,14 +95,14 @@ export default {
 <style scoped>
 .modal{
 position: absolute;
-width: 100vw;
+width: 105%;
 height: 200vh;
 background: rgba(196, 196, 196, 0.5);
 backdrop-filter: blur(10px);
 }
 .product{
 position: absolute;
-width: 75%;
+width: 70%;
 height: 25%;
 left: 15%;
 top:8%;
@@ -111,8 +111,8 @@ border-radius: 180px 4px 4px 180px;
 }
 .productImage{
 position: absolute;
-width: 8.6vw;
-height:15vh;
+width: 55%;
+height:15%;
 left: 4%;
 top: 5%;
 background:"ProductImage";
@@ -138,24 +138,23 @@ cursor: pointer;
 }
 .report{
 position: absolute;
-left: 41.5%;
-right: 51.87%;
+left: 40.5%;
 top: 39.01%;
 bottom: 84.03%;
+cursor: pointer;
 
 }
-.report img {
+.reportIcon {
 width: 2.7vw;
 height: 5.66vh;
-cursor: pointer;
 }
 .report p {
 position: absolute;
-width: 44vw;
-height: 2vh;
-max-height:5%;
+width: 42vw; 
+max-height: 2vh;
 left: 50%;
 padding-left:0.6rem;
+padding-bottom:0.8rem;
 top:-1.33rem ;
 font-family: 'Poppins';
 font-style: normal;
@@ -229,30 +228,30 @@ border-radius: 2px;
 }
 
 .stars{
- position: absolute;
+ position: relative;
  display:flex;
  flex-direction: row;
- width:6vw;
- left: 90%;
- top: 20.66px;
-
+ max-width:6vw;
+ max-height:4vh;
+ left: 52%;
+ bottom: 1rem;
 }
 
 .stars p{
-left: 220%;
-margin-top:39%;
+position: absolute;
+left: 185%;
+margin-top:28%;
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 300;
-font-size: 24px;
+font-size: 1.5em;
 line-height: 1.5em;
 color: rgba(0, 0, 0, 0.5);
 }
 .WhiteStar{
 box-sizing: border-box;
 width: 2vw;
-height:3vh;
-
+height:4vh;
 
 }
 .totalPrice{
@@ -275,11 +274,12 @@ color: #4F95FF;
 }
 .ProductImage{
 position: absolute;
-width:363px;
-height: 212.6px;
-left: 41px;
-top: 56px;
+width:23%;
+height: 52.6%;
+left: 10%;
+top: 23%;
 transform: matrix(-0.91, 0.41, 0.41, 0.91, 0, 0);
+transform: scale(1);
 }
 .name{
 position: absolute;
@@ -301,14 +301,18 @@ width: 70vw;
 height: 30.9vh;
 top:105%;
 left:7%;
+transform :scale (1)
 }
 .suggestions{
    position: absolute;
    display:flex;
    flex-direction: row; 
-   width:56vw;
+   max-width:56vw;
    top:162%;
-   right:20%;
+   left:4%;
+}
+.suggestion2{
+ margin-left:-6%;
 }
 .insights{
   position: absolute;
